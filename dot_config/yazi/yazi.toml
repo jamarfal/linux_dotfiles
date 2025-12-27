@@ -1,0 +1,23 @@
+[manager]
+# Proporción de columnas: Parent (1) - Current (4) - Preview (3)
+# Le damos más espacio a la carpeta donde estás trabajando.
+ratio = [ 1, 4, 3 ]
+
+# Ordenar por defecto: primero directorios, luego archivos, orden natural
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+
+# Mostrar archivos ocultos por defecto (puedes cambiarlo a false si prefieres)
+show_hidden = true
+
+# Mostrar iconos de archivos
+show_symlink = true
+
+[preview]
+# Opciones de previsualización
+tab_size = 2
+max_width = 600
+max_height = 900
+cache_dir = ""

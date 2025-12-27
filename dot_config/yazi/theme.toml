@@ -1,0 +1,8 @@
+# Pega esto si quieres que el panel activo tenga un color distintivo
+[manager]
+cwd = { fg = "blue" }
+
+# Estilo del borde y selección
+[status]
+separator_open  = ""
+separator_close = ""
