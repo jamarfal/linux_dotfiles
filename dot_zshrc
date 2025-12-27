@@ -92,3 +92,21 @@ if type brew &>/dev/null; then
   # Syntax Highlighting (SIEMPRE EL ÚLTIMO)
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# --- ARREGLO DE TECLAS (Keybindings) ---
+
+# Activar atajos estándar tipo Emacs (Ctrl+A, Ctrl+E)
+bindkey -e
+
+# Asegurar que las teclas funcionan explícitamente
+bindkey '^A' beginning-of-line       # Ctrl+A -> Inicio
+bindkey '^E' end-of-line             # Ctrl+E -> Final
+bindkey '^U' backward-kill-line      # Ctrl+U -> Borrar hasta el inicio
+bindkey '^K' kill-line               # Ctrl+K -> Borrar hasta el final
+bindkey '^R' history-incremental-search-backward # Ctrl+R -> Buscar historial
+
+# Arreglar Flechas, Inicio y Fin (por si acaso)
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line

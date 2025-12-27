@@ -35,3 +35,26 @@ mouse-shift-capture = true
 
 # --- ATAJOS ---
 keybind = cmd+,=open_config
+
+# --- Mapeos estilo macOS para la terminal ---
+
+# Cmd + Flecha Izquierda -> Ir al principio de la línea (Envía Ctrl+A)
+keybind = super+left=text:\x01
+
+# Cmd + Flecha Derecha -> Ir al final de la línea (Envía Ctrl+E)
+keybind = super+right=text:\x05
+
+# Cmd + Borrar -> Borrar toda la línea hacia atrás (Envía Ctrl+U)
+keybind = super+backspace=text:\x15
+
+# Option + Flecha Izquierda -> Moverse una palabra atrás (Envía Alt+b)
+keybind = alt+left=text:\x1b\x62
+
+# Option + Flecha Derecha -> Moverse una palabra adelante (Envía Alt+f)
+keybind = alt+right=text:\x1b\x66
+
+# Mapear Cmd+Shift+Izquierda a "Ir al inicio" (Igual que Cmd+Izquierda)
+keybind = super+shift+left=text:\x01
+
+# Mapear Cmd+Shift+Derecha a "Ir al final" (Igual que Cmd+Derecha)
+keybind = super+shift+right=text:\x05
