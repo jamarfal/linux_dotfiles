@@ -1,4 +1,4 @@
-# --- 1. CONFIGURACIÓN DEL SISTEMA (M2/BREW) ---
+# --- 0. CONFIGURACIÓN DEL SISTEMA (M2/BREW) ---
 # Asegura que Homebrew esté en el path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -18,8 +18,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 # --- 5. ALIAS PRO (Para trabajar rápido) ---
-# Sistema
+#chezmoi edit --apply ~/.zshrc Sistema
 alias zconfig="open -e ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias ll="ls -lah" # Listar todo con detalles
