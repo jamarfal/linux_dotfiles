@@ -1,0 +1,23 @@
+# --- FUENTE ---
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+font-feature = calt
+
+# --- TEMA ---
+theme = Aurora
+
+# --- VENTANA (Corrección aquí) ---
+# En Mac, para quitar la barra superior se usa esto ahora:
+macos-titlebar-style = transparent
+background-opacity = 0.9
+background-blur-radius = 20
+
+# --- COMPORTAMIENTO (Corrección aquí) ---
+# El nombre correcto para que no pregunte al cerrar es este:
+confirm-close-surface = false
+
+# --- RATÓN ---
+mouse-shift-capture = true
+
+# --- ATAJOS ---
+keybind = cmd+,=open_config
