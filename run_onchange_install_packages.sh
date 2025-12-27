@@ -41,9 +41,8 @@ brew install bat # Reemplazo de cat
 # 6. Git y DevOps
 echo "🐙 Instalando herramientas de Git y Docker..."
 brew install lazygit
-brew install lazydocker # Interfaz para Docker
-brew install gh         # GitHub CLI
-brew install git-delta  # Mejor visualización de diffs
+brew install gh        # GitHub CLI
+brew install git-delta # Mejor visualización de diffs
 
 # 7. Instalar Fuentes y Ghostty (Casks)
 echo "🎨 Instalando fuentes y Ghostty..."

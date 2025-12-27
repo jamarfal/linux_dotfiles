@@ -1,4 +1,4 @@
-[mgr]
+[manager]
 # Proporción de columnas: Parent (1) - Current (4) - Preview (3)
 # Le damos más espacio a la carpeta donde estás trabajando.
 ratio = [ 1, 4, 3 ]

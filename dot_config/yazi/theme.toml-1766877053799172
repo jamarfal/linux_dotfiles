@@ -1,5 +1,5 @@
 # Pega esto si quieres que el panel activo tenga un color distintivo
-[mgr]
+[manager]
 cwd = { fg = "blue" }
 
 # Estilo del borde y selección
