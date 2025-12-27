@@ -18,6 +18,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Editor por defecto
 export EDITOR='nvim'
 export VISUAL='nvim'
 
