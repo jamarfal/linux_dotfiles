@@ -1,0 +1,72 @@
+# --- CONFIGURACIÓN STARSHIP: ANDROID PRO ---
+
+# 1. Estructura General
+# Usamos dos líneas para que si la ruta es larga, tengas espacio para escribir.
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$java\
+$kotlin\
+$gradle\
+$cmd_duration\
+$line_break\
+$character"""
+
+# 2. El Prompt (La flechita)
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)" # Cambia si entras en modo Normal de Vim
+
+# 3. Directorio (Rutas inteligentes)
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bold blue"
+read_only = " 🔒"
+
+# 4. Git (Lo más importante)
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[git_status]
+style = "red"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "📦"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+# 5. Java & Android (Tu día a día)
+[java]
+symbol = "☕ "
+style = "red dim"
+# Solo mostramos Java si hay archivos java en la carpeta
+detect_extensions = ["java", "class", "jar", "gradle", "clj", "cljc"]
+
+[kotlin]
+symbol = "🚀 "
+style = "blue dim"
+
+[gradle]
+symbol = "🐘 "
+style = "white dim"
+disabled = false 
+
+# 6. Utilidades
+[cmd_duration]
+min_time = 2000 # Solo muestra el tiempo si tarda más de 2s
+format = "took [$duration]($style) "
+style = "yellow"
+
+[memory_usage]
+disabled = true # Ahorramos recursos
