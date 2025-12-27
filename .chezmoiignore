@@ -1,0 +1,10 @@
+# Si NO es Darwin (macOS), ignorar la carpeta Library
+{{ if ne .chezmoi.os "darwin" }}
+Library/Application Support/lazygit
+{{ end }}
+
+# Si NO es Linux, ignorar la ruta de .config para lazygit
+# (Opcional, si prefieres usar solo la ruta nativa de Mac)
+{{ if ne .chezmoi.os "linux" }}
+.config/lazygit
+{{ end }}

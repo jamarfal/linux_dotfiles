@@ -4,7 +4,21 @@ font-size = 14
 font-feature = calt
 
 # --- TEMA ---
-theme = Aurora
+# --- APARIENCIA ---
+# Opción 1: La que hace juego con tu Tmux (RECOMENDADA)
+theme = Catppuccin Mocha
+
+# Si prefieres Tokyo Night, comenta la de arriba y usa esta:
+#theme = tokyo-night
+
+# --- EFECTOS VISUALES (CRISTAL) ---
+# Un poco de transparencia hace que se vea increíble
+background-opacity = 0.94
+# El desenfoque hace que el texto sea legible aunque haya cosas detrás
+background-blur-radius = 20
+
+# Quitar la barra de título de macOS (Más espacio para código)
+window-decoration = false
 
 # --- VENTANA (Corrección aquí) ---
 # En Mac, para quitar la barra superior se usa esto ahora:

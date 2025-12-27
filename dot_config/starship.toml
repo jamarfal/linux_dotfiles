@@ -11,6 +11,7 @@ $git_status\
 $java\
 $kotlin\
 $gradle\
+$custom
 $cmd_duration\
 $line_break\
 $character"""
@@ -70,3 +71,15 @@ style = "yellow"
 
 [memory_usage]
 disabled = true # Ahorramos recursos
+
+
+[custom.android]
+description = "Icono Android en proyectos de Apps"
+# Añadimos build.gradle suelto para cuando estás DENTRO de la carpeta app
+detect_files = ["app/build.gradle", "app/build.gradle.kts", "build.gradle", "build.gradle.kts", "AndroidManifest.xml"]
+symbol = "🤖 "
+# CAMBIO IMPORTANTE: Escribimos algo ("A") para que Starship no lo oculte
+command = "echo 'A'" 
+# En el format NO ponemos $output, así que la "A" no se verá, solo el icono
+format = "[$symbol]($style)"
+style = "bold green"

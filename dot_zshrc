@@ -1,58 +1,57 @@
 # --- 0. CONFIGURACIÓN DEL SISTEMA (M2/BREW) ---
-# Asegura que Homebrew esté en el path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# --- 2. HERRAMIENTAS DE RENDIMIENTO (RUST) ---
-# Starship: Prompt rápido y bonito
-eval "$(starship init zsh)"
-# Zoxide: Navegación inteligente (reemplaza a cd)
-eval "$(zoxide init zsh)"
+# --- 1. VARIABLES DE ENTORNO ---
+export EDITOR='nvim'
+export VISUAL='nvim'
+export LANG=en_US.UTF-8
 
-# --- 3. JAVA & ANDROID (SDKMAN) ---
-# Gestor de versiones de Java
+# Java & Android (SDKMAN)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# --- 4. PLUGINS (DESDE BREW) ---
-# Sugerencias (gris) y Colores (verde/rojo)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# --- 2. HERRAMIENTAS DE RENDIMIENTO (RUST) ---
+eval "$(starship init zsh)" # Prompt
+eval "$(zoxide init zsh)"   # Navegación (z)
 
-# Editor por defecto
-export EDITOR='nvim'
-export VISUAL='nvim'
+# --- 3. CONFIGURACIÓN DE COMPLETADO (ZSH-COMPLETIONS) ---
+# Añadir completados de Brew al fpath
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
 
-# --- 5. ALIAS PRO (Para trabajar rápido) ---
-#chezmoi edit --apply ~/.zshrc Sistema
-alias zconfig="open -e ~/.zshrc"
-alias reload="source ~/.zshrc"
-alias ll="ls -lah" # Listar todo con detalles
+# Inicializar sistema de completado (OBLIGATORIO para que funcionen los plugins)
+autoload -Uz compinit
+compinit
 
-# Git (Lo básico que traía Oh My Zsh)
+# --- 4. ALIAS Y HERRAMIENTAS ---
+# Sistema
+alias zconfig="$EDITOR ~/.zshrc" # Usa nvim en lugar de TextEdit
+alias reload="source ~/.zshrc && echo '✅ Zsh recargado'"
+
+# Git
 alias g="git"
 alias gst="git status"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gp="git pull"
 alias gl="git log --oneline --graph --decorate --all"
+alias lg="lazygit"
 
 # Android Dev
 alias gw="./gradlew"
 alias gwclean="./gradlew clean"
 alias studio="open -a /Applications/Android\ Studio.app ."
-alias scrcpy="scrcpy --max-size 1024" # Móvil en pantalla (limitado a 1024p para ir fluido)
-# --- MEJORAS VISUALES (MODERN UNIX) ---
-# Reemplazar ls con eza (Iconos, Git status, cabeceras)
+alias scrcpy="scrcpy --max-size 1024 --bit-rate 2M --max-fps 60" # Optimizado para fluidez
+
+# Modern Unix (Eza & Bat)
 alias ls="eza --icons --git --header --group-directories-first"
 alias ll="eza --icons --git --header --group-directories-first -l"
 alias la="eza --icons --git --header --group-directories-first -la"
-alias tree="eza --icons --tree" # Ver estructura en árbol
-
-# Reemplazar cat con bat (Syntax highlighting)
+alias tree="eza --icons --tree"
 alias cat="bat"
-alias lg="lazygit"
 
-# --- 6. FUNCIONES EXTRA ---
+# --- 5. FUNCIONES EXTRA ---
 # Copiar rama actual con Ctrl + G
 function copy_git_branch() {
     local branch=$(git branch --show-current 2>/dev/null)
@@ -67,9 +66,20 @@ function copy_git_branch() {
 zle -N copy_git_branch
 bindkey '^g' copy_git_branch
 
-# Historial optimizado
+# --- 6. HISTORIAL Y BÚSQUEDA ---
 HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# FZF (Búsqueda difusa)
+source <(fzf --zsh)
+
+# --- 7. PLUGINS VISUALES (AL FINAL) ---
+if type brew &>/dev/null; then
+  # Autosuggestions (Texto fantasma)
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  
+  # Syntax Highlighting (SIEMPRE EL ÚLTIMO)
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

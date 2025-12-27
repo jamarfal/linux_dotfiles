@@ -1,0 +1,22 @@
+[user]
+	email = joseam@ext.inditex.com
+  name = José Alberto Martín Falcón
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # Usa 'n' y 'N' para saltar entre archivos en el diff
+    light = false      # Pon 'true' si usas tema claro en la terminal
+    line-numbers = true
+    side-by-side = true # ¡La joya de la corona! Muestra cambios lado a lado
+    syntax-theme = Dracula # O usa 'Monokai Extended', 'Nord', etc.
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
