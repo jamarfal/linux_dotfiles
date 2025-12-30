@@ -1,7 +1,7 @@
 [user]
   email = joseam@ext.inditex.com
-  name = José Alberto Martín Falcón
-  signingKey = 65F60065BE5044B4
+	name = José Alberto Martín Falcón
+	signingkey = E371E58AAA17FC61
 
 [core]
     pager = delta
@@ -23,4 +23,6 @@
 	colorMoved = default
 [commit]
 	gpgsing = true
+[gpg]
+    program = /opt/homebrew/bin/gpg
 
