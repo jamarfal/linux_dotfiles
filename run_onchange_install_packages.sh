@@ -56,4 +56,12 @@ if [ ! -d "$HOME/.sdkman" ]; then
   curl -s "https://get.sdkman.io" | bash
 fi
 
+# 9. ARREGLO FINAL: Corregir permisos inseguros de Zsh (compaudit)
+# Esto evita el error "zsh compinit: insecure directories"
+echo "🔧 Corrigiendo permisos de directorios Zsh..."
+if command -v zsh >/dev/null 2>&1; then
+    # Invocamos zsh para que busque los directorios inseguros y les quite el permiso de escritura 'group'
+    zsh -c "autoload -Uz compaudit && compaudit | xargs chmod g-w" >/dev/null 2>&1 || true
+fi
+
 echo "✅ ¡Instalación completada! Reinicia la terminal."
