@@ -43,6 +43,7 @@ echo "🐙 Instalando herramientas de Git y Docker..."
 brew install lazygit
 brew install gh        # GitHub CLI
 brew install git-delta # Mejor visualización de diffs
+brew install pinentry-mac
 
 # 7. Instalar Fuentes y Ghostty (Casks)
 echo "🎨 Instalando fuentes y Ghostty..."

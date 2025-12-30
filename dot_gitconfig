@@ -1,6 +1,7 @@
 [user]
-	email = joseam@ext.inditex.com
+  email = joseam@ext.inditex.com
   name = José Alberto Martín Falcón
+  signingKey = 65F60065BE5044B4
 
 [core]
     pager = delta
@@ -19,4 +20,7 @@
     conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+	colorMoved = default
+[commit]
+	gpgsing = true
+
