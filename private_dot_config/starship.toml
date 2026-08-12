@@ -1,0 +1,32 @@
+# Insertar una línea en blanco entre comandos
+add_newline = true
+
+# Reemplazar el símbolo por defecto por uno más limpio
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Mostrar solo el nombre del directorio actual (no la ruta completa)
+[directory]
+truncation_length = 1
+style = "bold cyan"
+
+# Opciones para el módulo de Git
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[git_status]
+style = "red"
+
+# Mostrar la versión de Java solo cuando estés en un proyecto Java/Kotlin
+[java]
+symbol = " "
+style = "bold red"
+
+# Ocultar módulos que no necesites para mantener el prompt rápido
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true

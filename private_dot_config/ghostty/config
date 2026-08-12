@@ -1,0 +1,35 @@
+# Configuración Visual y Tema
+theme = Neon Blue Split Contrast
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+font-thicken = true
+
+# Ventana e Integración con macOS
+window-padding-x = 12
+window-padding-y = 12
+macos-titlebar-style = transparent
+window-theme = system
+window-save-state = always
+
+# Rendimiento y Renderizado por Hardware (GPU Metal)
+mouse-hide-while-typing = true
+scrollback-limit = 10000
+
+# Estilo de Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Atajos para División de Pantalla Nactiva (Sin tmux)
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+keybind = super+alt+left=goto_split:left
+keybind = super+alt+right=goto_split:right
+keybind = super+alt+up=goto_split:up
+keybind = super+alt+down=goto_split:down
+
+# Navegación Básica de Pestañas
+keybind = super+k=clear_screen
+keybind = super+t=new_tab
+keybind = super+w=close_surface
+keybind = super+n=new_window
+theme = neon-blue-split-contrast
