@@ -1,0 +1,180 @@
+## Base directory for Atuin data files (databases, keys, session, etc.)
+# data_dir = "~/.local/share/atuin"
+
+## where to store your database, default is your system data directory
+# db_path = "~/.history.db"
+
+## where to store your encryption key, default is your system data directory
+# key_path = "~/.key"
+
+## where to store your auth session token, default is your system data directory
+# session_path = "~/.session"
+
+## date format used, either "us" or "uk"
+# dialect = "us"
+
+## default timezone to use when displaying time
+timezone = "local"
+
+## enable or disable automatic sync
+# auto_sync = true
+
+## enable or disable automatic update checks
+update_check = false
+
+## which release channel to follow with `atuin update` and update checks
+# update_channel = "stable"
+
+## address of the sync server
+# sync_address = "https://api.atuin.sh"
+
+## how often to sync history
+# sync_frequency = "5m"
+
+## which search mode to use for interactive search
+search_mode = "fuzzy"
+
+## which search mode to use when atuin is invoked from a shell up-key binding
+search_mode_shell_up_key_binding = "fuzzy"
+
+## which filter mode to use for interactive search
+filter_mode = "global"
+
+## which filter mode to use when atuin is invoked from a shell up-key binding
+filter_mode_shell_up_key_binding = "global"
+
+## With workspace filtering enabled, Atuin will filter for commands executed in any git repo
+workspaces = true
+
+## which display style to use: auto, full, compact
+style = "compact"
+
+## the maximum number of lines the interface should take up
+inline_height = 20
+
+## the maximum number of lines when invoked from up-key binding
+inline_height_shell_up_key_binding = 20
+
+## Invert the UI - put the search bar at the top
+invert = false
+
+## enable or disable showing a preview of the selected command
+show_preview = true
+
+## what to do when the escape key is pressed when searching
+exit_mode = "return-original"
+
+## possible values: emacs, subl
+word_jump_mode = "emacs"
+
+## characters that count as a part of a word
+# word_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+## number of context lines to show when scrolling by pages
+scroll_context_lines = 1
+
+## use ctrl instead of alt as the shortcut modifier key for numerical UI shortcuts
+ctrl_n_shortcuts = false
+
+## Show numeric shortcuts (1..9) beside list items in the TUI
+show_numeric_shortcuts = true
+
+## default history list format
+# history_format = "{time}\t{command}\t{duration}"
+
+## Strip trailing spaces and tabs from commands before saving
+strip_trailing_whitespace = true
+
+## prevent commands matching any of these regexes from being written to history.
+history_filter = [
+   "^secret-cmd",
+   "^innocuous-cmd .*--secret=.+",
+   "^cd .*",
+   "^ls$",
+   "^clear$",
+   "^exit$",
+   "^v$"
+]
+
+## prevent commands run with cwd matching any of these regexes from being written
+# cwd_filter = [
+#    "^/very/secret/area",
+# ]
+
+## Configure the maximum height of the preview to show.
+max_preview_height = 4
+
+## Configure whether or not to show the help row
+show_help = true
+
+## Configure whether or not to show tabs for search and inspect
+show_tabs = true
+
+## Configure whether or not the tabs row may be auto-hidden
+auto_hide_height = 8
+
+## Filter secrets natively (AWS keys, Github PATs, Slack webhooks, etc.)
+secrets_filter = true
+
+## Enter executes command immediately, Tab loads it into the shell prompt
+enter_accept = true
+
+## Allow command chaining completion
+# command_chaining = false
+
+## startup keymap mode
+keymap_mode = "emacs"
+
+## Cursor style in each keymap mode
+keymap_cursor = { emacs = "blink-block", vim_insert = "blink-block", vim_normal = "steady-block" }
+
+# local_timeout = 5
+prefers_reduced_motion = false
+store_failed = true
+
+[stats]
+common_subcommands = [
+   "cargo",
+   "docker",
+   "git",
+   "go",
+   "npm",
+   "pnpm",
+   "brew",
+   "chezmoi"
+]
+
+common_prefix = ["sudo"]
+
+ignored_commands = [
+   "cd",
+   "ls",
+   "clear",
+   "exit",
+   "v"
+]
+
+[keys]
+scroll_exits = true
+exit_past_line_start = true
+accept_past_line_end = true
+accept_past_line_start = false
+accept_with_backspace = false
+
+[preview]
+strategy = "auto"
+
+[daemon]
+enabled = false
+
+[search]
+filters = ["global", "host", "session", "workspace", "directory", "session-preload"]
+shells = "auto"
+
+[tmux]
+enabled = false
+
+[ui]
+# Mostramos la duración, el tiempo relativo y la carpeta donde se ejecutó para mayor contexto
+columns = ["duration", "time", { type = "directory", width = 25 }, "command"]
+syntax_highlight = true
